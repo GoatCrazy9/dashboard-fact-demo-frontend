@@ -99,7 +99,7 @@ export function ComprobanteDetallePage() {
       <div className="no-print">
         <PageHeader
           title="Vista previa POS 80"
-          description="Ticket térmico de 80 mm con el QR de SICAP. Descarga el PDF generado en el servidor o usa Imprimir desde el navegador."
+          description="Ticket térmico de 80 mm con el QR de DEMO. Descarga el PDF generado en el servidor o usa Imprimir desde el navegador."
           actions={
             <>
               <Link
@@ -159,8 +159,8 @@ export function ComprobanteDetallePage() {
           lineHeight: 1.3,
         }}
       >
-        <div className="text-center font-bold uppercase">MUEBLERÍA JOSE</div>
-        <div className="text-center">De: Urquiza Cabrera Jose Humberto</div>
+        <div className="text-center font-bold uppercase">DEMO COMERCIAL</div>
+        <div className="text-center">De: Representante demo</div>
         <div className="text-center font-semibold">FABRICANTE DE MUEBLES DE DORMITORIO</div>
         <div className="text-center">RUC: {empresa.ruc}</div>
         <div className="mt-1 text-center">Venta de Colchones, Juego de Dormitorio, Camarote</div>
@@ -272,17 +272,17 @@ export function ComprobanteDetallePage() {
           <div className="mt-3 flex flex-col items-center gap-1 text-center">
             <img
               src={qr.dataUrl}
-              alt="QR del comprobante SICAP"
+              alt="QR del comprobante DEMO"
               className="h-[110px] w-[110px] object-contain"
             />
             <span className="text-[8px] leading-tight">
-              QR SICAP · {comprobante.serie}-{String(comprobante.numero).padStart(8, '0')}
+              QR DEMO · {comprobante.serie}-{String(comprobante.numero).padStart(8, '0')}
               <br />
               Sin envío a SUNAT
             </span>
           </div>
         )}
-        <div className="mt-2 text-center">Sistema SICAP RP</div>
+        <div className="mt-2 text-center">Sistema DEMO RP</div>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { cn } from '@/shared/utils/cn'
 interface LogoProps {
   compact?: boolean
   size?: 'sm' | 'md' | 'lg'
-  /** Texto claro para fondos oscuros, igual que el login de dojo. */
+  /** Texto claro para fondos oscuros, igual que el login de demo. */
   inverted?: boolean
   className?: string
 }
@@ -19,7 +19,7 @@ export function Logo({ compact = false, size = 'md', inverted = false, className
   const marca = (
     <img
       src="/favicon.svg"
-      alt={compact ? 'Mueblería José' : ''}
+      alt={compact ? 'Demo Facturación' : ''}
       className={cn(
         'w-auto shrink-0 object-contain',
         altura,
@@ -40,7 +40,7 @@ export function Logo({ compact = false, size = 'md', inverted = false, className
               inverted ? 'text-primary_on-brand' : 'text-primary',
             )}
           >
-            Mueblería José
+            Demo Facturación
           </span>
           <span
             className={cn(
@@ -62,7 +62,7 @@ export function Logo({ compact = false, size = 'md', inverted = false, className
       {!compact && (
         <div className="min-w-0 leading-tight">
           <p className={cn('truncate font-semibold', titulo, inverted ? 'text-white' : 'text-primary')}>
-            Mueblería José
+            Demo Facturación
           </p>
           <p
             className={cn(

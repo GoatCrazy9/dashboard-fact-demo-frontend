@@ -24,7 +24,7 @@ interface Fuente {
   fetch: () => Promise<Resultado[]>
 }
 
-/** Adaptación del GlobalSearch histórico de dojo a las tres entidades de SICAP. */
+/** Adaptación del GlobalSearch histórico de demo a las tres entidades de DEMO. */
 const FUENTES: Record<'comprobantes' | 'clientes' | 'productos', Fuente> = {
   comprobantes: {
     icono: 'receipt',

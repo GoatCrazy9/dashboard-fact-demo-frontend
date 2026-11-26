@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://muebleria-jose-backend-rsqv.onrender.com/api/$1"
+      "destination": "https://dashboard-fact-demo-backend.onrender.com/api/$1"
     },
     {
       "source": "/((?!api/).*)",

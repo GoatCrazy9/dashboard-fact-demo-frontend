@@ -72,8 +72,8 @@ export function BoletaPreview({
         lineHeight: 1.3,
       }}
     >
-      <div className="text-center font-bold uppercase">MUEBLERÍA JOSE</div>
-      <div className="text-center">De: Urquiza Cabrera Jose Humberto</div>
+      <div className="text-center font-bold uppercase">DEMO COMERCIAL</div>
+      <div className="text-center">De: Representante demo</div>
       <div className="text-center font-semibold">FABRICANTE DE MUEBLES DE DORMITORIO</div>
       <div className="text-center">RUC: {empresa.ruc}</div>
       <div className="mt-1 text-center">Venta de Colchones, Juego de Dormitorio, Camarote</div>
@@ -172,7 +172,7 @@ export function BoletaPreview({
         <br />
         http://www.sunat.gob.pe/ol-ti-itconsvalicpe/ConsValiCpe.htm
       </div>
-      <div className="mt-2 text-center">Sistema SICAP RP</div>
+      <div className="mt-2 text-center">Sistema DEMO RP</div>
     </div>
   )
 }

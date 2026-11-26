@@ -27,7 +27,7 @@ export function AvatarPerfil({
   etiqueta,
   className,
 }: AvatarPerfilProps) {
-  const semilla = nombre.trim() || 'Mueblería José'
+  const semilla = nombre.trim() || 'Demo Facturación'
   return (
     <span className={cn('relative inline-flex shrink-0', className)}>
       <AvatarBoring

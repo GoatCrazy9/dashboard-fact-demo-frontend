@@ -99,17 +99,17 @@ export function Navbar() {
               onClick={() => setMenuOpen((open) => !open)}
               aria-expanded={menuOpen}
               aria-haspopup="menu"
-              aria-label={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+              aria-label={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
               className="flex cursor-pointer items-center rounded-full text-primary outline-focus-ring"
             >
               <AvatarPerfil
-                nombre={user?.usuario ?? user?.nombre ?? 'Mueblería José'}
-                etiqueta={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+                nombre={user?.usuario ?? user?.nombre ?? 'Demo Facturación'}
+                etiqueta={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
                 tamano={40}
                 className="me-1 rounded-full ring-1 ring-secondary ring-inset [&>svg]:size-8 sm:me-3 sm:[&>svg]:size-10"
               />
               <span className="me-1 hidden max-w-32 truncate text-sm font-medium sm:block">
-                {user?.nombre ?? 'Mueblería José'}
+                {user?.nombre ?? 'Demo Facturación'}
               </span>
               <Icon
                 name="chevron-down"
@@ -127,13 +127,13 @@ export function Navbar() {
               >
                 <div className="flex items-center gap-3 rounded-lg bg-secondary p-3">
                   <AvatarPerfil
-                    nombre={user?.usuario ?? user?.nombre ?? 'Mueblería José'}
-                    etiqueta={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+                    nombre={user?.usuario ?? user?.nombre ?? 'Demo Facturación'}
+                    etiqueta={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
                     tamano={48}
                   />
                   <div className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-semibold text-primary">
-                      {user?.nombre ?? 'Mueblería José'}
+                      {user?.nombre ?? 'Demo Facturación'}
                     </span>
                     <span className="mt-0.5 block truncate text-xs text-tertiary">
                       @{user?.usuario ?? 'admin'}

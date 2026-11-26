@@ -13,7 +13,7 @@ interface CheckboxProps {
   onChange?: (isSelected: boolean) => void
 }
 
-/** Checkbox accesible con el mismo patrón visual que dojo. */
+/** Checkbox accesible con el mismo patrón visual que demo. */
 export function Checkbox({
   label,
   hint,

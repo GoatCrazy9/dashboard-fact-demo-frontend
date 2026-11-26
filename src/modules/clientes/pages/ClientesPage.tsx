@@ -254,7 +254,7 @@ export function ClientesPage() {
             <div className="flex flex-1 flex-col gap-0.5">
               <p className="text-xl font-semibold text-primary">Clientes</p>
               <p className="text-md text-tertiary">
-                Padrón de clientes registrado en SICAP. Usa “Ver detalles” para la ficha completa.
+                Padrón de clientes registrado en DEMO. Usa “Ver detalles” para la ficha completa.
               </p>
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">

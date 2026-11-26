@@ -65,7 +65,7 @@ function valorOrdenUltimos(row: ComprobanteResumen, clave: ClaveOrdenUltimos): s
 
 function iniciales(nombre: string): string {
   const partes = nombre.trim().split(/\s+/).slice(0, 2)
-  return partes.map((parte) => parte[0]?.toUpperCase() ?? '').join('') || 'MJ'
+  return partes.map((parte) => parte[0]?.toUpperCase() ?? '').join('') || 'DF'
 }
 
 function suma(valores: number[]): number {
@@ -370,15 +370,15 @@ export function PanelPage() {
           <div className="flex flex-col gap-4 lg:flex-row">
             <div className="flex flex-1 items-center gap-3">
               <AvatarPerfil
-                nombre={user?.usuario ?? user?.nombre ?? 'Mueblería José'}
-                etiqueta={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+                nombre={user?.usuario ?? user?.nombre ?? 'Demo Facturación'}
+                etiqueta={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
                 tamano={56}
                 enLinea
                 className="rounded-full ring-1 ring-secondary_alt"
               />
               <div className="min-w-0">
                 <h1 className="truncate text-xl font-semibold text-primary">
-                  Bienvenido de nuevo, {user?.nombre?.split(' ')[0] ?? 'Jose'}
+                  Bienvenido de nuevo, {user?.nombre?.split(' ')[0] ?? 'Demo'}
                 </h1>
                 <p className="text-md text-balance text-tertiary">
                   {fechaCorta(new Date().toISOString())}

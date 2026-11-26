@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
-import { useTheme } from '@/context/ThemeContext'
 import { ThemeToggleButton } from '@/shared/components/common/ThemeToggleButton'
 import { Logo } from '@/shared/ui/Logo'
 import { LoginForm } from '../components/LoginForm'
@@ -16,19 +15,15 @@ import {
 } from '../service/authService'
 import type { LoginCredentials } from '../types'
 
-/** Panel derecho: una vista previa clara y otra oscura del panel. */
-const MOCKUP_POR_TEMA = {
-  light: '/login-mockup.webp',
-  dark: '/login-mockup-black.webp',
-} as const
+/** Panel derecho: vista previa neutra del panel de la demo. */
+const MOCKUP_SRC = '/login-mockup.svg'
 
 export function LoginPage() {
   const { user, status, login } = useAuth()
-  const { theme } = useTheme()
   const navigate = useNavigate()
   const location = useLocation()
   const destino = (location.state as { from?: string } | null)?.from ?? '/'
-  const mockupSrc = MOCKUP_POR_TEMA[theme]
+  const mockupSrc = MOCKUP_SRC
 
   const [usuario, setUsuario] = useState(() => getRememberedUser())
   const [password, setPassword] = useState('')
@@ -41,14 +36,6 @@ export function LoginPage() {
   useEffect(() => {
     setMockupError(false)
   }, [mockupSrc])
-
-  useEffect(() => {
-    // Precarga las dos variantes para que el cambio de tema no deje huecos.
-    Object.values(MOCKUP_POR_TEMA).forEach((src) => {
-      const imagen = new Image()
-      imagen.src = src
-    })
-  }, [])
 
   if (status === 'authenticated' && user) {
     return <Navigate to={user.rol === 'MAESTRO' ? '/maestro' : destino} replace />
@@ -128,7 +115,7 @@ export function LoginPage() {
         </main>
 
         <footer className="hidden p-8 pt-11 lg:block">
-          <p className="text-sm text-tertiary">© {new Date().getFullYear()} Mueblería José</p>
+          <p className="text-sm text-tertiary">© {new Date().getFullYear()} Demo Facturación</p>
         </footer>
       </div>
 
@@ -148,7 +135,7 @@ export function LoginPage() {
               ) : (
                 <img
                   src={mockupSrc}
-                  alt="Vista previa del panel de Mueblería José"
+                  alt="Vista previa del panel de Demo Facturación"
                   onError={() => setMockupError(true)}
                   className="block h-auto w-full object-contain"
                 />

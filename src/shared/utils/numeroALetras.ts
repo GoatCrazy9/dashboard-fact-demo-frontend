@@ -97,7 +97,7 @@ function enPalabras(valor: number): string {
   return menosMil(valor)
 }
 
-/** Convierte un importe a la frase usada en las boletas de SICAP: "UN MIL ... CON 00/100". */
+/** Convierte un importe a la frase usada en las boletas de DEMO: "UN MIL ... CON 00/100". */
 export function numeroALetras(valor: number): string {
   const absoluto = Math.abs(valor)
   const entero = Math.floor(absoluto)

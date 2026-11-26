@@ -1,6 +1,6 @@
 /** Almacenamiento de sesión compartido por el cliente API y el módulo de autenticación. */
-export const SESSION_STORAGE_KEY = 'sicap.session'
-export const SESSION_CHANGED_EVENT = 'sicap:session-changed'
+export const SESSION_STORAGE_KEY = 'demo.session'
+export const SESSION_CHANGED_EVENT = 'demo:session-changed'
 
 export interface StoredSession {
   token: string

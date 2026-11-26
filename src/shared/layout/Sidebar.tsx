@@ -197,8 +197,8 @@ export function Sidebar() {
         {collapsed ? (
           <div className="flex justify-center">
             <AvatarPerfil
-              nombre={user?.usuario ?? user?.nombre ?? 'Mueblería José'}
-              etiqueta={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+              nombre={user?.usuario ?? user?.nombre ?? 'Demo Facturación'}
+              etiqueta={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
               className="rounded-full ring-1 ring-secondary_alt"
               enLinea
             />
@@ -207,14 +207,14 @@ export function Sidebar() {
           <div className="relative flex items-center gap-3 rounded-xl p-3 ring-1 ring-secondary ring-inset">
             <figure className="group flex min-w-0 flex-1 items-center gap-2">
               <AvatarPerfil
-              nombre={user?.usuario ?? user?.nombre ?? 'Mueblería José'}
-              etiqueta={`Perfil de ${user?.nombre ?? 'Mueblería José'}`}
+              nombre={user?.usuario ?? user?.nombre ?? 'Demo Facturación'}
+              etiqueta={`Perfil de ${user?.nombre ?? 'Demo Facturación'}`}
               className="rounded-full ring-1 ring-secondary_alt"
               enLinea
             />
               <figcaption className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-primary">
-                  {user?.nombre ?? 'Mueblería José'}
+                  {user?.nombre ?? 'Demo Facturación'}
                 </p>
                 <p className="truncate text-sm text-tertiary">@{user?.usuario ?? 'admin'}</p>
               </figcaption>

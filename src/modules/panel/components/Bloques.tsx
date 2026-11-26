@@ -5,7 +5,7 @@ import { cn } from '@/shared/utils/cn'
 
 export type TonoIndicador = 'error' | 'warning' | 'success'
 
-/** Indicador compacto del dashboard, con el mismo patrón visual que dojo. */
+/** Indicador compacto del dashboard, con el mismo patrón visual que demo. */
 export function Indicador({
   etiqueta,
   valor,

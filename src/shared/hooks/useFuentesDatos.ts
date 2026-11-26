@@ -13,7 +13,7 @@ export interface FuentesDatos<T> {
 
 /**
  * Carga varias fuentes en paralelo con `Promise.allSettled`: si una falla, las
- * demás siguen disponibles. Es el mismo contrato que usa el GlobalSearch de dojo.
+ * demás siguen disponibles. Es el mismo contrato que usa el GlobalSearch de demo.
  */
 export function useFuentesDatos<T extends Record<string, unknown>>(
   fuentes: Fetchers<T>,

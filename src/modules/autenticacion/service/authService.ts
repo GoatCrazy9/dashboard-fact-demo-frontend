@@ -6,15 +6,15 @@ import {
 } from '@/shared/services/authStorage'
 import type { AuthUser, LoginCredentials, LockState, Session } from '../types'
 
-/** 5 intentos fallidos consecutivos bloquean la cuenta, igual que en dojo. */
+/** 5 intentos fallidos consecutivos bloquean la cuenta, igual que en demo. */
 export const MAX_FAILED_ATTEMPTS = 5
 export const LOCKOUT_DURATION_MS = 5 * 60 * 1000
 export const ATTEMPT_WINDOW_MS = 15 * 60 * 1000
 
 const STORAGE_KEYS = {
-  attempts: 'sicap.login.attempts',
-  lock: 'sicap.login.lock',
-  rememberedUser: 'sicap.remembered-user',
+  attempts: 'demo.login.attempts',
+  lock: 'demo.login.lock',
+  rememberedUser: 'demo.remembered-user',
 } as const
 
 export const AUTH_MESSAGES = {

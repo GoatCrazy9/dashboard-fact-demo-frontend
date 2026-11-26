@@ -269,7 +269,7 @@ export function ComprobantesPage() {
             <div className="flex flex-1 flex-col gap-0.5">
               <p className="text-xl font-semibold text-primary">Comprobantes</p>
               <p className="text-md text-tertiary">
-                Facturas, boletas y notas electrónicas registradas en SICAP.
+                Facturas, boletas y notas electrónicas registradas en DEMO.
               </p>
             </div>
             <div className="flex flex-col gap-4 lg:flex-row">

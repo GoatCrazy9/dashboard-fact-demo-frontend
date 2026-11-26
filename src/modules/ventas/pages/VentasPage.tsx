@@ -352,7 +352,7 @@ export function VentasPage() {
           title="Nueva venta"
           description={
             <>
-              {empresa?.razonSocial ?? 'MUEBLERIA JOSE'} · RUC {empresa?.ruc ?? '—'} ·{' '}
+              {empresa?.razonSocial ?? 'DEMO COMERCIAL SAC'} · RUC {empresa?.ruc ?? '—'} ·{' '}
               {empresa?.direccion ?? 'Cargando dirección del local…'}
             </>
           }
@@ -941,7 +941,7 @@ export function VentasPage() {
               tipo={form.tipoComprobante}
               empresa={{
                 ruc: empresa?.ruc ?? '',
-                razonSocial: empresa?.razonSocial ?? 'MUEBLERIA JOSE',
+                razonSocial: empresa?.razonSocial ?? 'DEMO COMERCIAL SAC',
                 direccion: empresa?.direccion ?? '',
                 distrito: empresa?.distrito ?? '',
               }}

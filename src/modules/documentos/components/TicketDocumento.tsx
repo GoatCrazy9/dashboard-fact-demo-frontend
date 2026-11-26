@@ -75,7 +75,7 @@ export function TicketDocumento({
         lineHeight: 1.3,
       }}
     >
-      <div className="text-center font-bold uppercase">{empresa.razonSocial || 'MUEBLERIA JOSE'}</div>
+      <div className="text-center font-bold uppercase">{empresa.razonSocial || 'DEMO COMERCIAL SAC'}</div>
       <div className="text-center">RUC: {empresa.ruc || '—'}</div>
       <div className="mt-1 text-center break-words">{empresa.direccion || '—'}</div>
 
@@ -146,7 +146,7 @@ export function TicketDocumento({
           ? 'DOCUMENTO GUARDADO · NO SE ENVÍA A SUNAT'
           : 'DOCUMENTO NO TRIBUTARIO · NO SE ENVÍA A SUNAT · NO GUARDADO'}
       </div>
-      <div className="mt-2 text-center">Sistema SICAP RP</div>
+      <div className="mt-2 text-center">Sistema DEMO RP</div>
     </div>
   )
 }

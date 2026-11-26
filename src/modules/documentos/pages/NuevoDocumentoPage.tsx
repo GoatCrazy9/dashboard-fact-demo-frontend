@@ -317,7 +317,7 @@ export function NuevoDocumentoPage() {
           title="Nueva proforma o pedido"
           description={
             <>
-              {empresa?.razonSocial ?? 'MUEBLERIA JOSE'} · RUC {empresa?.ruc ?? '—'} ·{' '}
+              {empresa?.razonSocial ?? 'DEMO COMERCIAL SAC'} · RUC {empresa?.ruc ?? '—'} ·{' '}
               {empresa?.direccion ?? 'Cargando dirección del local…'}
             </>
           }
@@ -649,7 +649,7 @@ export function NuevoDocumentoPage() {
         <VistaPreviaDocumento
           tipo={tipo}
           empresa={{
-            razonSocial: empresa?.razonSocial ?? 'MUEBLERIA JOSE',
+            razonSocial: empresa?.razonSocial ?? 'DEMO COMERCIAL SAC',
             ruc: empresa?.ruc ?? '',
             direccion: empresa?.direccion ?? '',
           }}
