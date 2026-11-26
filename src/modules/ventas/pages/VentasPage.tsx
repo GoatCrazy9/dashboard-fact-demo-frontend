@@ -402,7 +402,7 @@ export function VentasPage() {
                     value={form.numeroDocumento}
                     onChange={(e) => actualizar('numeroDocumento', e.target.value)}
                     placeholder="Número de documento"
-                    className={claseConError('numeroDocumento', cn(inputClass, 'flex-1'))}
+                    className={claseConError('numeroDocumento', cn(inputClass, 'sm:flex-1'))}
                     aria-invalid={Boolean(errorDe('numeroDocumento'))}
                   />
                   <Button
