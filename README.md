@@ -50,7 +50,7 @@ sin desbordes horizontales y los modales caben en pantallas pequeñas. Los skele
 ## Autenticación y roles
 
 - `ADMIN`: acceso total excepto gestión de usuarios.
-- `MAESTRO`: usuarios, accesos y auditoría; no factura.
+- `MAESTRO`: usuarios, accesos y auditoría; no factura y no puede cambiar su contraseña.
 - `VENDEDOR`: factura solo si tiene el permiso habilitado.
 
 El token se guarda en el navegador y se envía como Bearer a `/api`. La sesión se valida en cada

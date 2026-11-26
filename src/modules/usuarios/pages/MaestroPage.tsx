@@ -180,7 +180,7 @@ export function MaestroPage() {
         // El maestro gestiona accesos de vendedores y administradores, pero no de otros maestros.
         const gestionable = fila.rol !== 'MAESTRO'
         const esPropio = fila.id === user?.id
-        const puedeCambiarPassword = fila.rol !== 'MAESTRO' || esPropio
+        const puedeCambiarPassword = fila.rol !== 'MAESTRO'
         const ocupado = accionId === fila.id
         return (
           <div className="flex flex-wrap justify-end gap-2">
@@ -205,7 +205,11 @@ export function MaestroPage() {
               size="xs"
               variant="ghost"
               isDisabled={!puedeCambiarPassword}
-              aria-label={`Cambiar contraseña de ${fila.nombre}`}
+              aria-label={
+                esPropio
+                  ? 'La contraseña del maestro no se puede cambiar'
+                  : `Cambiar contraseña de ${fila.nombre}`
+              }
               onClick={() => setCambiandoPassword(fila)}
               startIcon={<Icon name="lock" className="size-3.5" />}
             >
@@ -221,7 +225,7 @@ export function MaestroPage() {
     <>
       <PageHeader
         title="Usuarios y accesos"
-        description="Crea vendedores y administradores, gestiona sus accesos y renueva contraseñas. Sección exclusiva del maestro."
+        description="Crea vendedores y administradores, gestiona sus accesos y renueva contraseñas. La contraseña del maestro está protegida."
         actions={<Badge tone="gray">{usuarios.length} cuentas</Badge>}
       />
 

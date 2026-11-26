@@ -47,7 +47,7 @@ export function CambiarPasswordDialog({
     }
   }, [open, usuario?.id, onClose])
 
-  if (!open || !usuario) return null
+  if (!open || !usuario || usuario.rol === 'MAESTRO') return null
 
   const longitudValida = password.length >= 8
   const coinciden = password.length > 0 && password === repetir
