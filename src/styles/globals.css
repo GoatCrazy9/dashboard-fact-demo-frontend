@@ -1,0 +1,254 @@
+@import 'tailwindcss';
+@import './theme.css';
+@import './typography.css';
+
+@plugin '@tailwindcss/typography';
+@plugin 'tailwindcss-react-aria-components';
+@plugin 'tailwindcss-animate';
+
+/*
+  El tema oscuro se conmuta con `.dark-mode` (Untitled UI). `.dark` se acepta
+  porque el script de index.html y ThemeContext lo aplican antes del primer pintado.
+*/
+@custom-variant dark (&:where(.dark-mode, .dark-mode *, .dark, .dark *));
+@custom-variant dark-mode (&:where(.dark-mode, .dark-mode *, .dark, .dark *));
+@custom-variant label (& [data-label]);
+@custom-variant focus-input-within (&:has(input:focus));
+
+/*
+  Cambio de tema con View Transitions: la página nueva se revela desde el botón
+  con un círculo que crece hasta cubrir el viewport. La instantánea antigua se
+  mantiene quieta debajo, sin fundido, para que el borde del círculo sea limpio.
+  ThemeContext calcula --reveal-x, --reveal-y y --reveal-radius en cada clic.
+*/
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0px at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--reveal-radius, 150vmax) at var(--reveal-x, 50%) var(--reveal-y, 50%));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fondo de puntos para el login: negro en tema claro, claro en tema oscuro. */
+@utility login-dot-pattern {
+  background-image: radial-gradient(circle, var(--color-text-primary) 1px, transparent 1.4px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+}
+
+@utility menu-item {
+  @apply relative flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors;
+}
+
+@utility menu-item-active {
+  @apply bg-brand-section_subtle text-brand-secondary ring-1 ring-inset ring-brand;
+}
+
+@utility menu-item-inactive {
+  @apply text-secondary hover:bg-primary_hover hover:text-secondary_hover;
+}
+
+@utility menu-item-icon-size {
+  @apply size-5 shrink-0;
+}
+
+@utility menu-item-icon-active {
+  @apply text-brand-secondary;
+}
+
+@utility menu-item-icon-inactive {
+  @apply text-fg-tertiary group-hover:text-fg-secondary_hover;
+}
+
+@theme {
+  /* Identidad Mueblería José: azul institucional como acento, neutros del tema. */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+  --color-brand-800: #1e3a8a;
+  --color-brand-900: #1e3570;
+  --color-brand-950: #172554;
+
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  /* Mayor contraste en modo claro usando los mismos tokens de los componentes. */
+  :root:not(.dark-mode):not(.dark) {
+    --color-text-primary: var(--color-neutral-950);
+    --color-text-secondary: var(--color-neutral-800);
+    --color-text-secondary_hover: var(--color-neutral-900);
+    --color-text-tertiary: var(--color-neutral-700);
+    --color-text-tertiary_hover: var(--color-neutral-800);
+    --color-text-quaternary: var(--color-neutral-600);
+    --color-text-placeholder: var(--color-neutral-600);
+    --color-text-brand-secondary: var(--color-brand-800);
+    --color-text-brand-tertiary: var(--color-brand-700);
+    --color-text-brand-tertiary_alt: var(--color-brand-700);
+
+    --color-fg-primary: var(--color-neutral-950);
+    --color-fg-secondary: var(--color-neutral-800);
+    --color-fg-secondary_hover: var(--color-neutral-900);
+    --color-fg-quaternary: var(--color-neutral-500);
+    --color-fg-quaternary_hover: var(--color-neutral-600);
+
+    --color-bg-secondary: var(--color-neutral-100);
+    --color-bg-secondary_alt: var(--color-neutral-100);
+    --color-bg-primary_hover: var(--color-neutral-100);
+    --color-bg-secondary_hover: var(--color-neutral-200);
+    --color-bg-tertiary: var(--color-neutral-200);
+    --color-bg-quaternary: var(--color-neutral-300);
+    --color-border-primary: var(--color-neutral-500);
+    --color-border-secondary: var(--color-neutral-300);
+    --color-border-secondary_alt: var(--color-neutral-300);
+    --color-border-tertiary: var(--color-neutral-300);
+
+    --color-bg-brand-section_subtle: var(--color-brand-50);
+
+    --color-text-success-primary: var(--color-green-800);
+    --color-text-warning-primary: var(--color-yellow-800);
+    --color-text-error-primary: var(--color-red-700);
+    --color-text-required: var(--color-red-700);
+    --color-fg-success-primary: var(--color-green-700);
+    --color-fg-success-secondary: var(--color-green-700);
+    --color-fg-warning-primary: var(--color-yellow-700);
+    --color-fg-warning-secondary: var(--color-yellow-700);
+    --color-fg-error-primary: var(--color-red-700);
+    --color-fg-error-secondary: var(--color-red-700);
+    --color-border-error: var(--color-red-600);
+    --color-border-error_subtle: var(--color-red-500);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border-secondary);
+  }
+
+  html {
+    @apply bg-canvas;
+  }
+
+  html[data-color-scheme='dark'] {
+    color-scheme: dark;
+  }
+
+  html[data-color-scheme='light'] {
+    color-scheme: light;
+  }
+
+  body {
+    @apply relative z-1 bg-canvas font-body text-primary antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-fg-brand-primary);
+    outline-offset: 2px;
+  }
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+
+  .print-area {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 3mm;
+    box-shadow: none !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .overlay-vista-previa {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  html[data-print='a4'] .print-a4 {
+    position: static !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Safari iOS amplía la página al enfocar campos menores a 16px. */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
