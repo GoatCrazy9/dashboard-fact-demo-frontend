@@ -4,17 +4,19 @@ import { useAuth } from '@/context/AuthContext'
 import { useTheme } from '@/context/ThemeContext'
 import { ThemeToggleButton } from '@/shared/components/common/ThemeToggleButton'
 import { Logo } from '@/shared/ui/Logo'
+import { DemoCredentials } from '../components/DemoCredentials'
 import { LoginForm } from '../components/LoginForm'
 import {
   AuthError,
   AUTH_MESSAGES,
+  fetchDemoCredentials,
   forgetRememberedUser,
   getRemainingAttempts,
   getRememberedUser,
   MAX_FAILED_ATTEMPTS,
   rememberUser,
 } from '../service/authService'
-import type { LoginCredentials } from '../types'
+import type { DemoCredential, LoginCredentials } from '../types'
 
 /** Panel derecho: vista previa clara y oscura del panel de la demo. */
 const MOCKUP_POR_TEMA = {
@@ -37,6 +39,8 @@ export function LoginPage() {
   const [serverError, setServerError] = useState<string | null>(null)
   const [remainingAttempts, setRemainingAttempts] = useState(MAX_FAILED_ATTEMPTS)
   const [mockupError, setMockupError] = useState(false)
+  const [demoCredentials, setDemoCredentials] = useState<DemoCredential[]>([])
+  const [demoCredentialsLoading, setDemoCredentialsLoading] = useState(true)
 
   useEffect(() => {
     setMockupError(false)
@@ -48,6 +52,23 @@ export function LoginPage() {
       const imagen = new Image()
       imagen.src = src
     })
+  }, [])
+
+  useEffect(() => {
+    let activo = true
+    fetchDemoCredentials()
+      .then((credenciales) => {
+        if (activo) setDemoCredentials(credenciales)
+      })
+      .catch(() => {
+        if (activo) setDemoCredentials([])
+      })
+      .finally(() => {
+        if (activo) setDemoCredentialsLoading(false)
+      })
+    return () => {
+      activo = false
+    }
   }, [])
 
   if (status === 'authenticated' && user) {
@@ -119,6 +140,17 @@ export function LoginPage() {
               onPasswordChange={setPassword}
               onRememberChange={setRemember}
               onSubmit={() => void handleSubmit({ usuario, password })}
+            />
+
+            <DemoCredentials
+              credentials={demoCredentials}
+              loading={demoCredentialsLoading}
+              onSelect={(credential) => {
+                setUsuario(credential.username)
+                setPassword(credential.password)
+                setServerError(null)
+                setRemainingAttempts(MAX_FAILED_ATTEMPTS)
+              }}
             />
 
             <p className="text-center text-sm text-tertiary">

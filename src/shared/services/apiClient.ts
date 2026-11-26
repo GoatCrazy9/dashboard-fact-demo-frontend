@@ -12,7 +12,11 @@ export class ApiError extends Error {
   }
 }
 
-const RUTAS_PUBLICAS = ['/autenticacion/login', '/autenticacion/logout']
+const RUTAS_PUBLICAS = [
+  '/autenticacion/login',
+  '/autenticacion/logout',
+  '/autenticacion/demo-credentials',
+]
 
 function cabeceras(): HeadersInit {
   const token = getStoredToken()

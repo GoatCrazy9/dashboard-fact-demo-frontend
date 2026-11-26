@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import type { FormEvent } from 'react'
 import { Alert } from '@/shared/ui/Alert'
 import { Button } from '@/shared/ui/Button'
@@ -43,6 +43,10 @@ export function LoginForm({
   const [touched, setTouched] = useState({ usuario: false, password: false })
   const [showPassword, setShowPassword] = useState(false)
   const [mostrarAyuda, setMostrarAyuda] = useState(false)
+
+  useEffect(() => {
+    setErrors({})
+  }, [usuario, password])
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

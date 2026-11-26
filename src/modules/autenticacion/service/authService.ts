@@ -4,7 +4,13 @@ import {
   getStoredSession,
   saveStoredSession,
 } from '@/shared/services/authStorage'
-import type { AuthUser, LoginCredentials, LockState, Session } from '../types'
+import type {
+  AuthUser,
+  DemoCredential,
+  LoginCredentials,
+  LockState,
+  Session,
+} from '../types'
 
 /** 5 intentos fallidos consecutivos bloquean la cuenta, igual que en demo. */
 export const MAX_FAILED_ATTEMPTS = 5
@@ -133,6 +139,14 @@ export function forgetRememberedUser(): void {
 
 export function getSession(): Session | null {
   return getStoredSession<Session>()
+}
+
+/** Credenciales públicas del demo local, servidas desde el entorno del backend. */
+export async function fetchDemoCredentials(): Promise<DemoCredential[]> {
+  const datos = await apiFetch<{ credentials: DemoCredential[] }>(
+    '/autenticacion/demo-credentials',
+  )
+  return Array.isArray(datos.credentials) ? datos.credentials : []
 }
 
 /** Verifica la sesión guardada contra el backend; si no sirve, la descarta. */

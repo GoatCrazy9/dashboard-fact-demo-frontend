@@ -19,6 +19,13 @@ export interface LoginCredentials {
   password: string
 }
 
+export interface DemoCredential {
+  username: string
+  password: string
+  role: Role
+  label: string
+}
+
 export type AuthErrorCode =
   | 'INVALID_CREDENTIALS'
   | 'ACCOUNT_LOCKED'
