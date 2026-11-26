@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/context/AuthContext'
+import { useTheme } from '@/context/ThemeContext'
 import { ThemeToggleButton } from '@/shared/components/common/ThemeToggleButton'
 import { Logo } from '@/shared/ui/Logo'
 import { LoginForm } from '../components/LoginForm'
@@ -15,15 +16,19 @@ import {
 } from '../service/authService'
 import type { LoginCredentials } from '../types'
 
-/** Panel derecho: vista previa neutra del panel de la demo. */
-const MOCKUP_SRC = '/login-mockup.svg'
+/** Panel derecho: vista previa clara y oscura del panel de la demo. */
+const MOCKUP_POR_TEMA = {
+  light: '/login-mockup.webp',
+  dark: '/login-mockup-black.webp',
+} as const
 
 export function LoginPage() {
   const { user, status, login } = useAuth()
+  const { theme } = useTheme()
   const navigate = useNavigate()
   const location = useLocation()
   const destino = (location.state as { from?: string } | null)?.from ?? '/'
-  const mockupSrc = MOCKUP_SRC
+  const mockupSrc = MOCKUP_POR_TEMA[theme]
 
   const [usuario, setUsuario] = useState(() => getRememberedUser())
   const [password, setPassword] = useState('')
@@ -36,6 +41,14 @@ export function LoginPage() {
   useEffect(() => {
     setMockupError(false)
   }, [mockupSrc])
+
+  useEffect(() => {
+    // Precarga ambas variantes para que el cambio de tema no deje huecos.
+    Object.values(MOCKUP_POR_TEMA).forEach((src) => {
+      const imagen = new Image()
+      imagen.src = src
+    })
+  }, [])
 
   if (status === 'authenticated' && user) {
     return <Navigate to={user.rol === 'MAESTRO' ? '/maestro' : destino} replace />
