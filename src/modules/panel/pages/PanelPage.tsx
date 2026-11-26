@@ -377,7 +377,7 @@ export function PanelPage() {
                 className="rounded-full ring-1 ring-secondary_alt"
               />
               <div className="min-w-0">
-                <h1 className="truncate text-xl font-semibold text-primary">
+                <h1 className="break-words text-lg font-semibold text-primary sm:text-xl">
                   Bienvenido de nuevo, {user?.nombre?.split(' ')[0] ?? 'Demo'}
                 </h1>
                 <p className="text-md text-balance text-tertiary">
@@ -412,7 +412,7 @@ export function PanelPage() {
                 className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-brand-solid px-3 text-sm font-semibold text-white shadow-xs-skeuomorphic ring-1 ring-primary ring-inset transition-colors hover:bg-brand-solid_hover sm:h-10"
               >
                 <Icon name="plus" className="size-4" />
-                <span className="hidden sm:inline">Emitir comprobante</span>
+                <span className="whitespace-nowrap">Emitir comprobante</span>
               </Link>
             </div>
           </div>

@@ -61,7 +61,7 @@ export function PanelSkeleton() {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <Skeleton className="h-12 w-full rounded-lg sm:h-10 sm:w-70" />
-            <Skeleton className="size-12 rounded-lg sm:h-10 sm:w-44" />
+            <Skeleton className="h-12 w-44 rounded-lg sm:h-10" />
           </div>
         </div>
 
