@@ -102,16 +102,16 @@ export function LoginPage() {
   }
 
   return (
-    <section className="grid min-h-dvh grid-cols-1 bg-primary lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)]">
+    <section className="grid min-h-dvh grid-cols-1 bg-primary lg:h-dvh lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:overflow-hidden">
       <div className="relative flex min-w-0 flex-col bg-primary">
         <div className="absolute start-4 top-4 z-20">
           <ThemeToggleButton />
         </div>
 
-        <main className="relative z-10 flex w-full flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 md:px-8 md:py-20">
-          <div className="flex w-full max-w-90 flex-col gap-8">
-            <div className="flex flex-col gap-4 md:gap-8">
-              <div className="hidden h-12 items-center md:flex">
+        <main className="relative z-10 flex w-full flex-1 flex-col items-center justify-center px-4 py-6 sm:px-6 md:px-8 md:py-8 lg:min-h-0">
+          <div className="flex w-full max-w-90 flex-col gap-4 lg:max-w-md lg:gap-5">
+            <div className="flex flex-col gap-2 md:gap-3">
+              <div className="hidden h-10 items-center md:flex">
                 <Logo size="lg" />
               </div>
 
@@ -119,7 +119,7 @@ export function LoginPage() {
                 <Logo compact size="lg" />
               </div>
 
-              <div className="flex flex-col gap-2 md:gap-3">
+              <div className="flex flex-col gap-1 md:gap-1.5">
                 <h1 className="text-xl font-semibold text-primary md:text-display-xs">
                   Inicia sesión
                 </h1>
@@ -152,14 +152,10 @@ export function LoginPage() {
                 setRemainingAttempts(MAX_FAILED_ATTEMPTS)
               }}
             />
-
-            <p className="text-center text-sm text-tertiary">
-              ¿No tienes una cuenta? Solicita acceso al administrador.
-            </p>
           </div>
         </main>
 
-        <footer className="hidden p-8 pt-11 lg:block">
+        <footer className="hidden px-8 pb-3 pt-1 lg:block">
           <p className="text-sm text-tertiary">© {new Date().getFullYear()} Demo Facturación</p>
         </footer>
       </div>

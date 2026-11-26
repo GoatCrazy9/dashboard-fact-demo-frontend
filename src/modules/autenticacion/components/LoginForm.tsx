@@ -65,10 +65,10 @@ export function LoginForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex w-full flex-col gap-6">
+    <form onSubmit={handleSubmit} noValidate className="flex w-full flex-col gap-4">
       {serverError && <Alert tone="error">{serverError}</Alert>}
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-4">
         <TextField
           id={`${formId}-usuario`}
           label="Usuario"
