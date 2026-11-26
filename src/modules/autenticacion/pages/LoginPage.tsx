@@ -109,7 +109,7 @@ export function LoginPage() {
         </div>
 
         <main className="relative z-10 flex w-full flex-1 flex-col items-center justify-center px-4 py-6 sm:px-6 md:px-8 md:py-8 lg:min-h-0">
-          <div className="flex w-full max-w-90 flex-col gap-4 lg:max-w-md lg:gap-5">
+          <div className="flex w-full max-w-90 flex-col gap-4 lg:gap-5">
             <div className="flex flex-col gap-2 md:gap-3">
               <div className="hidden h-10 items-center md:flex">
                 <Logo size="lg" />

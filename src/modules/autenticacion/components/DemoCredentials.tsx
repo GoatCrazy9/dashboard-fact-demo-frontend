@@ -41,7 +41,7 @@ export function DemoCredentials({ credentials, loading, onSelect }: DemoCredenti
         </span>
       </div>
 
-      <ul className="mt-2 grid grid-cols-1 gap-2 lg:grid-cols-2">
+      <ul className="mt-2 flex flex-col gap-2">
         {credentials.map((credential) => (
           <li key={credential.username}>
             <button
